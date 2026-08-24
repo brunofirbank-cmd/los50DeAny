@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis 50 Años - ¡Festejemos juntos!</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --dorado: #d4af37;
+            --dorado-oscuro: #aa820a;
+            --fondo: #0d0d0d;
+            --tarjeta: #1a1a1a;
+            --texto: #ffffff;
+            --texto-secundario: #cccccc;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--fondo);
+            color: var(--texto);
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: var(--tarjeta);
+            border-radius: 20px;
+            padding: 40px 20px;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .badge {
+            font-family: 'Cinzel', serif;
+            color: var(--dorado);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: var(--dorado);
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--texto-secundario);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        /* Cuenta regresiva */
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+        }
+
+        .count-unit {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .count-number {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dorado);
+        }
+
+        .count-label {
+            font-size: 0.75rem;
+            color: var(--texto-secundario);
+            text-transform: uppercase;
+        }
+
+        /* Info evento */
+        .info-item {
+            margin: 15px 0;
+            font-size: 1rem;
+        }
+
+        .info-item i {
+            color: var(--dorado);
+            font-size: 1.2rem;
+            margin-right: 10px;
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: #ffffff;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1ebc57;
+            transform: translateY(-2px);
+        }
+
+        .btn-mapa {
+            background-color: transparent;
+            color: var(--dorado);
+            border: 1px solid var(--dorado);
+        }
+
+        .btn-mapa:hover {
+            background-color: var(--dorado);
+            color: var(--fondo);
+            transform: translateY(-2px);
+        }
+
+        .btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: var(--texto-secundario);
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="badge">Mis 50 Años</div>
+        <h1>[ANAHI CAIRE]</h1>
+        <p class="subtitle">¡Acompáñame a festejar media vida de momentos inolvidables!</p>
+
+        <!-- Cuenta Regresiva -->
+        <div class="card">
+            <p style="color: var(--dorado); font-weight: 600;">FALTAN:</p>
+            <div class="countdown">
+                <div class="count-unit">
+                    <span class="count-number" id="days">00</span>
+                    <span class="count-label">Días</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-number" id="hours">00</span>
+                    <span class="count-label">Hs</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-number" id="minutes">00</span>
+                    <span class="count-label">Min</span>
+                </div>
+                <div class="count-unit">
+                    <span class="count-number" id="seconds">00</span>
+                    <span class="count-label">Seg</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Detalle del Evento -->
+        <div class="card">
+            <div class="info-item">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span><strong>Fecha:</strong> [Sábado 15 de Octubre de 2026]</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-regular fa-clock"></i>
+                <span><strong>Hora:</strong> [21:00 hs]</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <span><strong>Lugar:</strong> [Nombre del Salon / Dirección]</span>
+            </div>
+            <div class="info-item">
+                <i class="fa-solid fa-user-tie"></i>
+                <span><strong>Dress Code:</strong> Elegante</span>
+            </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <!-- REEMPLAZA EL NÚMERO EN EL LINK (ej: 5491123456789) -->
+        <a href="https://wa.me/1134410305?text=¡Hola!%20Confirmo%20mi%20asistencia%20para%20los%2050%20años." target="_blank" class="btn btn-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
+        </a>
+
+        <!-- REEMPLAZA EL LINK DE GOOGLE MAPS -->
+        <a href="https://maps.app.goo.gl/SMfx55wGb1gUKeoV8" target="_blank" class="btn btn-mapa">
+            <i class="fa-solid fa-map-location-dot"></i> Cómo Llegar
+        </a>
+
+        <footer>
+            ¡Tu presencia es mi mejor regalo!
+        </footer>
+    </div>
+
+    <!-- Script para la Cuenta Regresiva -->
+    <script>
+        // CONFIGURA AQUÍ LA FECHA DEL EVENTO (Año, Mes-1, Día, Hora, Minutos)
+        // Nota: En Javascript los meses van de 0 (Enero) a 11 (Diciembre).
+        const eventDate = new Date(2026, 8, 11, 21, 30, 0).getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            Acá tenés el código **completo** (HTML y CSS integrados en un solo archivo) listo para usar. Es un diseño elegante, moderno y responsivo, ideal para unos 50 años.
+
+Guardá todo este código en un archivo llamado `index.html` y abrilo en cualquier navegador:
+
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis 50 Años - ¡Celebremos juntos!</title>
+  
+  <!-- Tipografía elegante de Google Fonts -->
+  <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
+  <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
+  <link href="[https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap](https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@300;400;600&display=swap)" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-color: #fdfbf7;
+      --card-bg: #ffffff;
+      --primary: #d4af37; /* Dorado */
+      --text-dark: #2c2c2c;
+      --text-muted: #666666;
+      --accent: #e8d5b5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-dark);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 10px;
+    }
+
+    .container {
+      background-color: var(--card-bg);
+      max-width: 500px;
+      width: 100%;
+      padding: 40px 25px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      border: 1px solid var(--accent);
+      text-align: center;
+    }
+
+    .subtitle-top {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--primary);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 5px;
+    }
+
+    .age-badge {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 15px;
+      line-height: 1;
+    }
+
+    p.intro {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      line-height: 1.5;
+    }
+
+    .divider {
+      width: 50px;
+      height: 2px;
+      background-color: var(--primary);
+      margin: 25px auto;
+    }
+
+    .info-block {
+      margin-bottom: 25px;
+    }
+
+    .info-block h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+
+    .info-block p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .btn {
+      display: inline-block;
+      width: 100%;
+      padding: 14px 20px;
+      margin-top: 10px;
+      background-color: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #b5932b;
+    }
+
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-dark);
+      border: 1px solid var(--primary);
+      margin-top: 12px;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-color);
+    }
+
+    footer {
+      margin-top: 30px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="subtitle-top">¡Estás invitado!</div>
+    <!-- Cambiá "Mamá" por el nombre de tu mamá si querés -->
+    <h1>Mis 50 Años</h1>
+    <div class="age-badge">50</div>
+
+    <p class="intro">
+      Hay momentos en la vida que merecen celebrarse en grande. Te espero para compartir una noche inolvidable llena de alegría y buenos recuerdos.
+    </p>
+
+    <div class="divider"></div>
+
+    <!-- Fecha y Hora -->
+    <div class="info-block">
+      <h3>¿Cuándo?</h3>
+      <p>Viernes, 11 de Septiembre</p>
+      <p><strong>21:30 hs</strong></p>
+    </div>
+
+    <!-- Lugar -->
+    <div class="info-block">
+      <h3>¿Dónde?</h3>
+      <p>Salon de Eventos Freeport</p>
+      <p>Av. Siempre Viva 1234, Ciudad</p>
+    </div>
+
+    <!-- Código de vestimenta -->
+    <div class="info-block">
+      <h3>Dress Code</h3>
+      <p>Elegante Sport / Eleganza Sport</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Botón de Confirmación por WhatsApp -->
+    <!-- Reemplazá EL_NUMERO_DE_TELEFONO con tu número completo (código de país + área + número) sin espacios ni el signo + -->
+    <a href="[https://wa.me/1134410405?text=](https://wa.me/5491112345678?text=)¡Hola!%20Confirmo%20mi%20asistencia%20a%20la%20fiesta%20de%2050%20años." class="btn" target="_blank">
+      Confirmar Asistencia por WhatsApp
+    </a>
+
+    <!-- Botón para Google Maps -->
+    <!-- Reemplazá la URL del link por el enlace de tu ubicación exacta en Google Maps -->
+    <a href="https://maps.app.goo.gl/SMfx55wGb1gUKeoV8" class="btn btn-secondary" target="_blank">
+      Cómo Llegar (Google Maps)
+    </a>
+
+    <footer>
+      ¡Contamos con tu presencia para hacer esta noche especial!
+    </footer>
+  </div>
+
+</body>
+</html>
